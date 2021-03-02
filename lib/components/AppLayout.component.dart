@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:newrock/components/AppCarousel.component.dart';
+
 
 
 class AppLayout extends StatefulWidget {
@@ -37,23 +39,9 @@ class _AppLayoutState extends State<AppLayout> {
           },
           letIndexChange: (index) => true,
         ),
-        body: Container(
-          color: Colors.blueAccent,
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Text(_page.toString(), textScaleFactor: 3.0),
-                RaisedButton(
-                  child: Text('Go To Page of index 1'),
-                  onPressed: () {
-                    final CurvedNavigationBarState navBarState =
-                        _bottomNavigationKey.currentState;
-                    navBarState.setPage(1);
-                  },
-                )
-              ],
-            ),
-          ),
-        ));
+        body: AppCarousel()
+    );
   }
 }
+
+
