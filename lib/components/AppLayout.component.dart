@@ -3,6 +3,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+// Pages
+import 'package:newrock/components/pages/HomePage.component.dart';
+import 'package:newrock/components/pages/TestPage.component.dart';
+import 'package:newrock/components/pages/ProfilePage.component.dart';
 
 
 
@@ -37,10 +41,8 @@ class _AppLayoutState extends State<AppLayout> {
           index: _page,
           height: 50.0,
           items: <Widget>[
-            Icon(Icons.add, size: 20),
+            Icon(Icons.home, size: 20),
             Icon(Icons.list, size: 20),
-            Icon(Icons.compare_arrows, size: 20),
-            Icon(Icons.call_split, size: 20),
             Icon(Icons.perm_identity, size: 20),
           ],
           color: Colors.white,
@@ -60,16 +62,17 @@ class _AppLayoutState extends State<AppLayout> {
             child: Column(
               children: <Widget>[
                 CarouselSlider(
-                  items: imgList.map((item) => Container(
-                    child: Center(
-                        child: Image.network(item, fit: BoxFit.cover, height: MediaQuery.of(context).size.height)
-                    ),
-                  )).toList(),
+                  items: [
+                    HomePage(),
+                    TestPage(),
+                    ProfilePage()
+                  ],
                   options: CarouselOptions(
-                      enlargeCenterPage: true,
-                      height: 200,
+                      enableInfiniteScroll: false,
+                      viewportFraction: 1.0,
+                      enlargeCenterPage: false,
+                      height: MediaQuery.of(context).size.height,
                       onPageChanged: (index, reason) {
-                        print('wqer');
                         setState(() {
                           _page = index;
                         });
