@@ -31,9 +31,7 @@ class _AppCarouselState extends State<AppCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text('Manually controlled slider')),
-        body: SingleChildScrollView(
+    return SingleChildScrollView(
           child: Column(
             children: <Widget>[
               CarouselSlider(
@@ -71,8 +69,7 @@ class _AppCarouselState extends State<AppCarousel> {
                 ],
               )
             ],
-          ),
-        )
+          )
     );
   }
 }
