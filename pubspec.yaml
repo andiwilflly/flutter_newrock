@@ -22,6 +22,8 @@ environment:
 
 dependencies:
   get: ^3.25.6
+  curved_navigation_bar: ^0.3.7
+  carousel_slider: ^3.0.0
   flutter:
     sdk: flutter
 
