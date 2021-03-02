@@ -41,15 +41,15 @@ class _AppLayoutState extends State<AppLayout> {
           index: _page,
           height: 50.0,
           items: <Widget>[
-            Icon(Icons.home, size: 20),
-            Icon(Icons.list, size: 20),
-            Icon(Icons.perm_identity, size: 20),
+            Icon(Icons.home, size: 25, color: Colors.white),
+            Icon(Icons.notifications, size: 25, color: Colors.white),
+            Icon(Icons.perm_identity, size: 25, color: Colors.white),
           ],
-          color: Colors.white,
-          buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
+          color: Theme.of(context).accentColor,
+          buttonBackgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).primaryColor,
           animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 300),
+          animationDuration: Duration(milliseconds: 400),
           onTap: (index) {
             _controller.animateToPage(index);
             setState(() {
@@ -71,7 +71,7 @@ class _AppLayoutState extends State<AppLayout> {
                       enableInfiniteScroll: false,
                       viewportFraction: 1.0,
                       enlargeCenterPage: false,
-                      height: MediaQuery.of(context).size.height,
+                      height: MediaQuery.of(context).size.height - 90,
                       onPageChanged: (index, reason) {
                         setState(() {
                           _page = index;
@@ -80,17 +80,6 @@ class _AppLayoutState extends State<AppLayout> {
                   ),
                   carouselController: _controller,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Flexible(
-                      child: RaisedButton(
-                        onPressed: () => _controller.previousPage(),
-                        child: Text('←'),
-                      ),
-                    ),
-                  ],
-                )
               ],
             )
         )

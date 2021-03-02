@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 
 class ProfilePage extends StatelessWidget {
 
@@ -6,7 +7,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-          child: Text('PROFILE')
+          child: Text('PROFILE', style: Theme.of(context).textTheme.bodyText1)
       ),
     );
   }

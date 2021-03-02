@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 
 class TestPage extends StatelessWidget {
 
@@ -6,7 +7,7 @@ class TestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-          child: Text('TEST')
+          child: Text('TEST', style: Theme.of(context).textTheme.bodyText1)
       ),
     );
   }
