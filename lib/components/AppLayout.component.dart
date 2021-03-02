@@ -7,14 +7,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:newrock/components/pages/HomePage.component.dart';
 import 'package:newrock/components/pages/TestPage.component.dart';
 import 'package:newrock/components/pages/ProfilePage.component.dart';
-
-
-
-final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
-];
+// Models
+import 'package:newrock/models/root.model.dart';
 
 
 class AppLayout extends StatefulWidget {
@@ -36,28 +30,6 @@ class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
-          index: _page,
-          height: 50.0,
-          items: <Widget>[
-            Icon(Icons.home, size: 25, color: Colors.white),
-            Icon(Icons.notifications, size: 25, color: Colors.white),
-            Icon(Icons.perm_identity, size: 25, color: Colors.white),
-          ],
-          color: Theme.of(context).accentColor,
-          buttonBackgroundColor: Theme.of(context).accentColor,
-          backgroundColor: Theme.of(context).primaryColor,
-          animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 400),
-          onTap: (index) {
-            _controller.animateToPage(index);
-            setState(() {
-              _page = index;
-            });
-          },
-          letIndexChange: (index) => true,
-        ),
         body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -82,6 +54,32 @@ class _AppLayoutState extends State<AppLayout> {
                 ),
               ],
             )
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          key: _bottomNavigationKey,
+          index: _page,
+          height: 50.0,
+          items: <Widget>[
+            Icon(Icons.home, size: 25, color: Colors.white),
+            Icon(Icons.notifications, size: 25, color: Colors.white),
+            Icon(Icons.perm_identity, size: 25, color: Colors.white),
+          ],
+          color: Theme.of(context).accentColor,
+          buttonBackgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).primaryColor,
+          animationCurve: Curves.easeInOut,
+          animationDuration: Duration(milliseconds: 400),
+          onTap: (index) {
+            _controller.animateToPage(index);
+            setState(() {
+              _page = index;
+            });
+          },
+          letIndexChange: (index) => true,
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => rootModel.increment(),
         )
     );
   }

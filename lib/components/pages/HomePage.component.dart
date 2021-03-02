@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+// Models
+import 'package:newrock/models/root.model.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -7,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-          child: Text('HOME', style: Theme.of(context).textTheme.bodyText1)
+          child: Obx(() => Text("${rootModel.count}!", style: Theme.of(context).textTheme.bodyText1))
       ),
     );
   }
