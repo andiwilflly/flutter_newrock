@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
@@ -30,6 +31,7 @@ class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -55,6 +57,7 @@ class _AppLayoutState extends State<AppLayout> {
               ],
             )
         ),
+
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
           index: _page,
@@ -79,7 +82,9 @@ class _AppLayoutState extends State<AppLayout> {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () => rootModel.increment(),
+          onPressed: () => {
+            rootModel.increment()
+          },
         )
     );
   }
