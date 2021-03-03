@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:newrock/models/root.model.dart';
 
 
-class HomePage extends StatelessWidget {
+class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

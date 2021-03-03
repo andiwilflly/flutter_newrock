@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'Login',
+      title: 'Welcome',
       logo: 'assets/images/rock_orange.png',
       onLogin: _authUser,
       onSignup: _authUser,

@@ -8,6 +8,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:newrock/components/pages/HomePage.component.dart';
 import 'package:newrock/components/pages/TestPage.component.dart';
 import 'package:newrock/components/pages/ProfilePage.component.dart';
+// Components
+import 'package:newrock/components/Header.component.dart';
 // Models
 import 'package:newrock/models/root.model.dart';
 
@@ -31,6 +33,21 @@ class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('Next page'),
+          // leading: Image.asset('assets/images/rock_orange.png', width: 50),
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                      Icons.settings
+                  ),
+                )
+            ),
+          ],
+        ),
 
         body: SingleChildScrollView(
             child: Column(
