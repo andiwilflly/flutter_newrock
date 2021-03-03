@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-          child: Obx(() => Text("${rootModel.count}!", style: Theme.of(context).textTheme.bodyText1))
+          child: Obx(() => Text("${store.count}!", style: Theme.of(context).textTheme.bodyText1))
       ),
     );
   }

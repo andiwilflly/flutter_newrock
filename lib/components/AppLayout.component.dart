@@ -83,7 +83,7 @@ class _AppLayoutState extends State<AppLayout> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () => {
-            rootModel.increment()
+            store.increment()
           },
         )
     );

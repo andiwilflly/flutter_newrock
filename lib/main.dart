@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'NEWROCK',
       theme: themeStyles,
-      home: Obx(() => rootModel.user == 0 ? LoginPage() : AppLayout() ),
+      home: Obx(() => store.auth == 0 ? LoginPage() : AppLayout() ),
     );
   }
 }
@@ -53,7 +53,7 @@ class App extends StatelessWidget {
           return MaterialApp(
             title: 'NEWROCK',
             theme: themeStyles,
-            home: Obx(() => rootModel.user == 0 ? LoginPage() : AppLayout() ),
+            home: Obx(() => store.auth.isAuth == true ? AppLayout() : LoginPage()),
           );
         }
 

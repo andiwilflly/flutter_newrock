@@ -1,20 +1,19 @@
 import 'package:get/get.dart';
+// Models
+import 'package:newrock/models/auth.model.dart';
 
 
 class RootModel {
 
-  var user = 0.obs;
+  final auth = AuthModel();
+
   var count = 0.obs;
 
   void increment() {
     count++;
   }
-
-  void logIn() {
-    user.value = 1;
-  }
 }
 
 
-final rootModel = RootModel();
+final store = RootModel();
 

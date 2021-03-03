@@ -1,39 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-// Models
+import 'package:firebase_auth/firebase_auth.dart';
+// Store
 import 'package:newrock/models/root.model.dart';
 
-const users = const {
-  'dribbble@gmail.com': '12345',
-  'hunter@gmail.com': 'hunter',
-};
 
 class LoginPage extends StatelessWidget {
-  Duration get loginTime => Duration(milliseconds: 2250);
 
-  Future<String> _authUser(LoginData data) {
-    rootModel.logIn();
-
+  Future<String> _authUser(LoginData data) async {
     print('Name: ${data.name}, Password: ${data.password}');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(data.name)) {
-        return 'Username not exists';
-      }
-      if (users[data.name] != data.password) {
-        return 'Password does not match';
-      }
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: data.name, // "admin@i.ua",
+          password: data.password // "121314"
+      );
       return null;
-    });
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        return 'Wrong password provided for that user.';
+      }
+    }
   }
 
   Future<String> _recoverPassword(String name) {
     print('Name: $name');
-    return Future.delayed(loginTime).then((_) {
-      if (!users.containsKey(name)) {
-        return 'Username not exists';
-      }
-      return null;
-    });
   }
 
   @override
@@ -44,9 +36,7 @@ class LoginPage extends StatelessWidget {
       onLogin: _authUser,
       onSignup: _authUser,
       onSubmitAnimationCompleted: () {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => Text('404!'),
-        ));
+        print('onSubmitAnimationCompleted!');
       },
       onRecoverPassword: _recoverPassword,
     );
