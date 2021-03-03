@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlutterLogin(
       title: 'Login',
-      logo: 'assets/images/ecorp-lightblue.png',
+      logo: 'assets/images/rock_orange.png',
       onLogin: _authUser,
       onSignup: _authUser,
       onSubmitAnimationCompleted: () {
