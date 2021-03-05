@@ -30,11 +30,27 @@ class _AppLayoutState extends State<AppLayout> {
     super.initState();
   }
 
+  void onSwipePage(index, reason) {
+    setState(() {
+      _page = index;
+    });
+    store.router.setCurrentPage(store.router.pages.keys.toList()[index]);
+  }
+
+  void onChangePage(index) {
+    _controller.animateToPage(index);
+    setState(() {
+      _page = index;
+    });
+    store.router.setCurrentPage(store.router.pages.keys.toList()[index]);
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Next page'),
+          title: Obx(() => Text(store.router.currentPage.toString())),
           // leading: Image.asset('assets/images/rock_orange.png', width: 50),
           actions: <Widget>[
             Padding(
@@ -53,21 +69,13 @@ class _AppLayoutState extends State<AppLayout> {
             child: Column(
               children: <Widget>[
                 CarouselSlider(
-                  items: [
-                    HomePage(),
-                    TestPage(),
-                    ProfilePage()
-                  ],
+                  items: store.router.pages.values.toList(),
                   options: CarouselOptions(
                       enableInfiniteScroll: false,
                       viewportFraction: 1.0,
                       enlargeCenterPage: false,
                       height: MediaQuery.of(context).size.height - 90,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _page = index;
-                        });
-                      }
+                      onPageChanged: onSwipePage
                   ),
                   carouselController: _controller,
                 ),
@@ -79,29 +87,14 @@ class _AppLayoutState extends State<AppLayout> {
           key: _bottomNavigationKey,
           index: _page,
           height: 50.0,
-          items: <Widget>[
-            Icon(Icons.home, size: 25, color: Colors.white),
-            Icon(Icons.notifications, size: 25, color: Colors.white),
-            Icon(Icons.perm_identity, size: 25, color: Colors.white),
-          ],
+          items: store.router.pages.keys.map((pageName) => Icon(store.router.icons[pageName], size: 25, color: Colors.white)).toList(),
           color: Theme.of(context).accentColor,
           buttonBackgroundColor: Theme.of(context).accentColor,
           backgroundColor: Theme.of(context).primaryColor,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 400),
-          onTap: (index) {
-            _controller.animateToPage(index);
-            setState(() {
-              _page = index;
-            });
-          },
+          onTap: onChangePage,
           letIndexChange: (index) => true,
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => {
-            store.increment()
-          },
         )
     );
   }

@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Obx(() => Text("${store.count}!", style: Theme.of(context).textTheme.bodyText1)),
+      child: Text("HOME PAGE", style: Theme.of(context).textTheme.bodyText1),
     );
   }
 }

@@ -1,13 +1,17 @@
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+Duration get loginTime => Duration(milliseconds: 3000);
 
 class AuthModel {
 
-  var isAuth = false.obs;
+  RxBool isAuth = false.obs;
 
   void logIn(user) {
-    isAuth.value = true;
+    Future.delayed(loginTime).then((_) {
+      isAuth.value = true;
+    });
+
   }
 
   void logOut() async {

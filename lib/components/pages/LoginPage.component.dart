@@ -39,6 +39,13 @@ class LoginPage extends StatelessWidget {
         print('onSubmitAnimationCompleted!');
       },
       onRecoverPassword: _recoverPassword,
+      theme: LoginTheme(
+         beforeHeroFontSize: 30,
+         primaryColor: Theme.of(context).primaryColor,
+         accentColor: Theme.of(context).accentColor,
+         pageColorLight: Colors.indigo.shade300,
+         pageColorDark: Theme.of(context).primaryColor,
+      )
     );
   }
 }

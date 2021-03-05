@@ -8,12 +8,6 @@ class RootModel {
 
   final auth = AuthModel();
   final router = RouterModel();
-
-  var count = 0.obs;
-
-  void increment() {
-    count++;
-  }
 }
 
 
