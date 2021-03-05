@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TouchableOpacity extends StatefulWidget {
   final Widget child;
   final Function onTap;
-  final Duration duration = const Duration(milliseconds: 250);
+  final Duration duration = const Duration(milliseconds: 300);
   final double opacity = 0.5;
 
   TouchableOpacity({@required this.child, this.onTap});

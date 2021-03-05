@@ -28,6 +28,7 @@ dependencies:
   http: 0.12.2
   curved_navigation_bar: ^0.3.7
   carousel_slider: ^3.0.0
+  flutter_offline: 1.0.0
   material_floating_search_bar: ^0.2.6
   flutter:
     sdk: flutter
