@@ -92,7 +92,7 @@ class _AppLayoutState extends State<AppLayout> {
           buttonBackgroundColor: Theme.of(context).accentColor,
           backgroundColor: Theme.of(context).primaryColor,
           animationCurve: Curves.easeInOut,
-          animationDuration: Duration(milliseconds: 400),
+          animationDuration: Duration(milliseconds: 300),
           onTap: onChangePage,
           letIndexChange: (index) => true,
         )

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// Models
-import 'package:newrock/models/root.model.dart';
+// Components
+import 'package:newrock/components/parts/SearchInput.component.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("HOME PAGE", style: Theme.of(context).textTheme.bodyText1),
+      child: SearchInput(),
     );
   }
 }

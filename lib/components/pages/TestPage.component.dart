@@ -2,44 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Second extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-          child: RaisedButton(
-            onPressed: () { Get.toNamed("/"); },
-            child: Text('Second -> home', style: Theme.of(context).textTheme.bodyText1),
-          )
+    return Center(
+      child: RaisedButton(
+        onPressed: () { Get.toNamed("/"); },
+        child: Hero(
+          tag: 'imageHero',
+          child: Image.network(
+            'https://picsum.photos/250?image=9',
+          ),
+        ),
       ),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-          child: RaisedButton(
-            onPressed: () { Get.toNamed("/second"); },
-            child: Text('Home -> second', style: Theme.of(context).textTheme.bodyText1),
-          )
-      ),
-    );
-  }
-}
-
-
-class UnknownRoutePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-          child: RaisedButton(
-            onPressed: () { Get.toNamed("/"); },
-            child: Text('404!', style: Theme.of(context).textTheme.bodyText1),
-          )
-      ),
+    return Column(
+      children: [
+        Hero(
+          tag: 'imageHero',
+          child: Image.network(
+            'https://picsum.photos/250?image=9',
+          ),
+        ),
+        RaisedButton(
+          onPressed: () { Get.toNamed("/second"); },
+          child: Text('MyHomePage!', style: Theme.of(context).textTheme.bodyText1),
+        )
+      ],
     );
   }
 }
@@ -53,10 +49,9 @@ class TestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialRoute: '/',
-      unknownRoute: GetPage(name: '/notfound', page: () => UnknownRoutePage()),
       getPages: [
-        GetPage(name: '/', page: () => MyHomePage(), transition: Transition.fadeIn  ),
-        GetPage(name: '/second', page: () => Second(), transition: Transition.fade  ),
+        GetPage(name: '/', page: () => MyHomePage(), transition: Transition.rightToLeft  ),
+        GetPage(name: '/second', page: () => Second(), transition: Transition.leftToRight  ),
       ],
     );
   }
