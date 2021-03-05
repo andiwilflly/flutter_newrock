@@ -28,7 +28,7 @@ class SearchInput extends StatelessWidget {
 
     return FloatingSearchBar(
       hint: 'Search artists...',
-      scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),
+      scrollPadding: const EdgeInsets.only(top: 10, bottom: 10),
       transitionDuration: const Duration(milliseconds: 400),
       transitionCurve: Curves.easeInOut,
       physics: const BouncingScrollPhysics(),

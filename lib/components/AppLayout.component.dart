@@ -74,7 +74,7 @@ class _AppLayoutState extends State<AppLayout> {
                       enableInfiniteScroll: false,
                       viewportFraction: 1.0,
                       enlargeCenterPage: false,
-                      height: MediaQuery.of(context).size.height - 90,
+                      height: MediaQuery.of(context).size.height - 150,
                       onPageChanged: onSwipePage
                   ),
                   carouselController: _controller,
