@@ -4,6 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_offline/flutter_offline.dart';
 // Pages
 import 'package:newrock/components/pages/HomePage.component.dart';
 import 'package:newrock/components/pages/TestPage.component.dart';
