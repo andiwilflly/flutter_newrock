@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:newrock/models/root.model.dart';
 // Screens
 import 'package:newrock/components/Artist.component.dart';
-import 'package:newrock/components/parts/SearchArtists.component.dart';
-// Components
 import 'package:newrock/components/parts/SearchInput.component.dart';
 
 

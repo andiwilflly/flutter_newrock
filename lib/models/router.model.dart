@@ -4,9 +4,31 @@ import 'package:flutter/material.dart';
 import 'package:newrock/components/pages/HomePage.component.dart';
 import 'package:newrock/components/pages/TestPage.component.dart';
 import 'package:newrock/components/pages/ProfilePage.component.dart';
+import 'package:newrock/components/Artist.component.dart';
+import 'package:newrock/components/parts/SearchInput.component.dart';
 
 
 class RouterModel {
+
+  var pages2 = {
+    "Home": {
+      "child": HomePage(),
+      "icon": Icons.home,
+      "screens": {
+        "/artists/search": {
+          "child": SearchInput(),
+          "params": {}
+        },
+        "/artists/:id": {
+          "onBack": "/artists/search",
+          "child": Artist(),
+          "params": {
+            "artist": null
+          }
+        }
+      }
+    }
+  };
 
   var pages = {
     'Home': HomePage(),
@@ -21,6 +43,7 @@ class RouterModel {
   };
 
   RxString currentPage = "Home".obs;
+  RxString backScreen = "".obs;
 
 
   void setCurrentPage(String page) {
@@ -32,9 +55,10 @@ class RouterModel {
   RxString currentHomeScreen = "/artists/search".obs;
   var selectedArtist;
 
-  void setCurrentHomeScreen(String screen, artist) {
+  void setCurrentHomeScreen(String screen, artist, String backScreenName) {
     currentHomeScreen.value = screen;
     selectedArtist = artist;
+    backScreen.value = backScreenName;
   }
 }
 

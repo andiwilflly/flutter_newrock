@@ -10,21 +10,28 @@ class Artist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = 390;
-    double imgSize = height * 0.8;
-    double padding = height * 0.1;
+    double imgSize = 250;
 
     return Container(
-      height: height,
-      child: TouchableOpacity(
-        onTap: ()=> store.router.setCurrentHomeScreen('/artists/search', null),
-        child: Padding(
-          padding: EdgeInsets.all(padding),
-          child: Column(
-            children: [
-              Text('go back')
-            ],
-          ),
+      child: Padding(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
+            Padding(
+                padding: EdgeInsets.only(top: 0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(imgSize),
+                  child: Image.network(
+                    store.router.selectedArtist['img'],
+                    height: imgSize,
+                    width: imgSize,
+                  ),
+                )),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text(store.router.selectedArtist['name'], style: Theme.of(context).textTheme.bodyText1),
+            ),
+          ],
         ),
       ),
     );
