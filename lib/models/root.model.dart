@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 // Models
 import 'package:newrock/models/auth.model.dart';
 import 'package:newrock/models/router.model.dart';

@@ -7,8 +7,6 @@ import 'package:newrock/components/parts/TouchableOpacity.component.dart';
 
 
 class Artist extends StatelessWidget {
-  final artist;
-  Artist({ this.artist });
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +14,15 @@ class Artist extends StatelessWidget {
     double imgSize = height * 0.8;
     double padding = height * 0.1;
 
-    print(artist);
     return Container(
       height: height,
       child: TouchableOpacity(
+        onTap: ()=> store.router.setCurrentHomeScreen('/artists/search', null),
         child: Padding(
           padding: EdgeInsets.all(padding),
           child: Column(
             children: [
-              Text('artist')
+              Text('go back')
             ],
           ),
         ),
