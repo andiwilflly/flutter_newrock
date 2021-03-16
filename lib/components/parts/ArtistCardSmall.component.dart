@@ -20,7 +20,7 @@ class ArtistCardSmall extends StatelessWidget {
     return Container(
       height: height,
       child: TouchableOpacity(
-        onTap: ()=> store.router.setCurrentHomeScreen('/artists/:id', artist, '/artists/search'),
+        onTap: ()=> store.router.setCurrentPageScreen('/artists/:id', artist),
         child: Padding(
           padding: EdgeInsets.all(padding),
           child: Row(

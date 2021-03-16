@@ -50,18 +50,25 @@ class _AppLayoutState extends State<AppLayout> {
   @override
   Widget build(BuildContext context) {
 
+    final navigator = store.router.navigator;
+    final screens = Map<String, dynamic>.from(store.router.navigator[store.router.currentPage.toString()]["screens"]);
     var routes = <StatelessWidget>[];
-    store.router.navigator.values.forEach((route)=> routes.add(route["child"]));
+    navigator.values.forEach((route)=> routes.add(route["child"]));
 
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          leading: Obx(()=> store.router.backScreen.toString() == "" ?
+          leading: Obx(()=> screens[store.router.currentPageScreen[store.router.currentPage.toString()].toString()]["onBack"] == '' ?
             Text('')
             :
             IconButton(
               icon: const Icon(Icons.arrow_back_ios),
-              onPressed: () { print('back!'); },
+              onPressed: () {
+                print('back');
+                var screens = Map<String, dynamic>.from(store.router.navigator[store.router.currentPage.toString()]["screens"]);
+                print(screens.keys.first);
+
+              },
             )
           ),
           backgroundColor: Colors.transparent,
@@ -71,7 +78,6 @@ class _AppLayoutState extends State<AppLayout> {
             IconButton(
               icon: const Icon(Icons.settings),
               onPressed: () {
-
               },
             ),
           ]

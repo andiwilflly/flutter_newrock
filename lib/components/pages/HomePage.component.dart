@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     StatelessWidget CurrentScreen;
 
     screens.keys.toList().forEach((screenName) {
-      if(screenName == store.router.currentHomeScreen.toString()) CurrentScreen = screens[screenName]["child"];
+      if(screenName == store.router.currentPageScreen["Home"].toString()) CurrentScreen = screens[screenName]["child"];
     });
 
     return CurrentScreen;

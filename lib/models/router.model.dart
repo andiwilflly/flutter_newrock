@@ -38,35 +38,30 @@ class RouterModel {
     }
   };
 
-  var pages = {
-    'Home': HomePage(),
-    "Notifications": TestPage(),
-    "Profile": ProfilePage()
-  };
 
-  var icons = {
-    'Home': Icons.home,
-    "Notifications": Icons.notifications,
-    "Profile": Icons.person
-  };
 
   RxString currentPage = "Home".obs;
-  RxString backScreen = "".obs;
 
+
+  RxMap currentPageScreen = {
+    "Home": "/artists/search",
+    "Notifications": "",
+    "Profile": ""
+  }.obs;
 
   void setCurrentPage(String page) {
     currentPage.value = page;
   }
 
 
+  void setCurrentPageScreen(String screen, params) {
+    var screens = Map<String, dynamic>.from(navigator[currentPage.toString()]["screens"]);
+    print(screens[screen]);
+    screens[screen]["params"] = params;
+    currentPageScreen[currentPage.toString()] = screen;
+  }
+
   // Home page screens logic
   RxString currentHomeScreen = "/artists/search".obs;
-  var selectedArtist;
-
-  void setCurrentHomeScreen(String screen, artist, String backScreenName) {
-    currentHomeScreen.value = screen;
-    selectedArtist = artist;
-    backScreen.value = backScreenName;
-  }
 }
 
