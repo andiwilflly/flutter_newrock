@@ -10,15 +10,14 @@ import 'package:newrock/components/parts/SearchInput.component.dart';
 class HomePage extends StatelessWidget {
 
   renderScreens() {
-    switch(store.router.currentHomeScreen.toString()) {
-      case "/artists/search":
-        return SearchInput();
-        break;
+    var screens = Map<String, dynamic>.from(store.router.navigator["Home"]["screens"]);
+    StatelessWidget CurrentScreen;
 
-      case "/artists/:id":
-        return Artist();
-        break;
-    }
+    screens.keys.toList().forEach((screenName) {
+      if(screenName == store.router.currentHomeScreen.toString()) CurrentScreen = screens[screenName]["child"];
+    });
+
+    return CurrentScreen;
   }
 
 

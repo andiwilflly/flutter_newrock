@@ -35,7 +35,7 @@ class _AppLayoutState extends State<AppLayout> {
     setState(() {
       _page = index;
     });
-    store.router.setCurrentPage(store.router.pages.keys.toList()[index]);
+    store.router.setCurrentPage(store.router.navigator.keys.toList()[index]);
   }
 
   void onChangePage(index) {
@@ -43,12 +43,15 @@ class _AppLayoutState extends State<AppLayout> {
     setState(() {
       _page = index;
     });
-    store.router.setCurrentPage(store.router.pages.keys.toList()[index]);
+    store.router.setCurrentPage(store.router.navigator.keys.toList()[index]);
   }
 
 
   @override
   Widget build(BuildContext context) {
+
+    var routes = <StatelessWidget>[];
+    store.router.navigator.values.forEach((route)=> routes.add(route["child"]));
 
     return Scaffold(
         appBar: AppBar(
@@ -77,7 +80,7 @@ class _AppLayoutState extends State<AppLayout> {
             child: Column(
               children: <Widget>[
                 CarouselSlider(
-                  items: store.router.pages.values.toList(),
+                  items: routes.toList(),
                   options: CarouselOptions(
                       enableInfiniteScroll: false,
                       viewportFraction: 1.0,
@@ -95,7 +98,7 @@ class _AppLayoutState extends State<AppLayout> {
           key: _bottomNavigationKey,
           index: _page,
           height: 50.0,
-          items: store.router.pages.keys.map((pageName) => Icon(store.router.icons[pageName], size: 25, color: Colors.white)).toList(),
+          items: store.router.navigator.keys.map((pageName) => Icon(store.router.navigator[pageName]["icon"], size: 25, color: Colors.white)).toList(),
           color: Theme.of(context).accentColor,
           buttonBackgroundColor: Theme.of(context).accentColor,
           backgroundColor: Theme.of(context).primaryColor,

@@ -10,7 +10,7 @@ import 'package:newrock/components/parts/SearchInput.component.dart';
 
 class RouterModel {
 
-  var pages2 = {
+  var navigator = {
     "Home": {
       "child": HomePage(),
       "icon": Icons.home,
@@ -27,6 +27,14 @@ class RouterModel {
           }
         }
       }
+    },
+    "Notifications": {
+      "child": TestPage(),
+      "icon": Icons.notifications
+    },
+    "Profile": {
+      "child": ProfilePage(),
+      "icon": Icons.person
     }
   };
 
