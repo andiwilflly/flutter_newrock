@@ -6,9 +6,9 @@ import 'package:newrock/models/root.model.dart';
 import 'package:newrock/components/parts/TouchableOpacity.component.dart';
 
 
-class ArtistScreen extends StatelessWidget {
-  //final artist;
-  //ArtistScreen({ Key key, @required this.artist }) : super(key: key);
+class Artist extends StatelessWidget {
+  final artist;
+  Artist({ this.artist });
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,7 @@ class ArtistScreen extends StatelessWidget {
     double imgSize = height * 0.8;
     double padding = height * 0.1;
 
+    print(artist);
     return Container(
       height: height,
       child: TouchableOpacity(
@@ -23,6 +24,7 @@ class ArtistScreen extends StatelessWidget {
           padding: EdgeInsets.all(padding),
           child: Column(
             children: [
+              Text('artist')
             ],
           ),
         ),

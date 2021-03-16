@@ -1,42 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Second extends StatelessWidget {
 
+class FirstRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
-      onPressed: () { Get.toNamed("/"); },
-      child: Hero(
-        tag: 'imageHero',
-        child: Image.network(
-          'https://picsum.photos/250?image=9',
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('First Route'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Open route'),
+          onPressed: () {
+            Navigator.pushNamed(context, '/second');
+          },
         ),
       ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-
+class SecondRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topRight,
-      child: Column(
-        children: [
-          Hero(
-            tag: 'imageHero',
-            child: Image.network(
-              'https://picsum.photos/250?image=9',
-            ),
-          ),
-          RaisedButton(
-            onPressed: () { Get.toNamed("/second"); },
-            child: Text('MyHomePage!', style: Theme.of(context).textTheme.bodyText1),
-          )
-        ],
-      )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+      ),
     );
   }
 }
@@ -48,12 +47,40 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
       initialRoute: '/',
-      getPages: [
-        GetPage(name: '/', page: () => MyHomePage(), transition: Transition.rightToLeft  ),
-        GetPage(name: '/second', page: () => Second(), transition: Transition.leftToRight  ),
-      ],
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => Scaffold(
+          appBar: AppBar(
+            title: Text('First Route'),
+          ),
+          body: Center(
+            child: ElevatedButton(
+              child: Text('Open route!'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/second');
+              },
+            ),
+          ),
+        ),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/second': (context) => Scaffold(
+          appBar: AppBar(
+            title: Text("Second Route"),
+          ),
+          body: Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Go back!'),
+            ),
+          ),
+        ),
+      },
     );
   }
 }

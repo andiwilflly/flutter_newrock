@@ -20,6 +20,7 @@ class ArtistCardSmall extends StatelessWidget {
     return Container(
       height: height,
       child: TouchableOpacity(
+        onTap: ()=> Navigator.pushNamed(context, '/second'),
         child: Padding(
           padding: EdgeInsets.all(padding),
           child: Row(

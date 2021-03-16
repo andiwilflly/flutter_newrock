@@ -50,22 +50,6 @@ class _AppLayoutState extends State<AppLayout> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        appBar: AppBar(
-          title: Obx(() => Text(store.router.currentPage.toString())),
-          // leading: Image.asset('assets/images/rock_orange.png', width: 50),
-          actions: <Widget>[
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Icon(
-                      Icons.settings
-                  ),
-                )
-            ),
-          ],
-        ),
-
         body: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -75,7 +59,7 @@ class _AppLayoutState extends State<AppLayout> {
                       enableInfiniteScroll: false,
                       viewportFraction: 1.0,
                       enlargeCenterPage: false,
-                      height: MediaQuery.of(context).size.height - 150,
+                      height: MediaQuery.of(context).size.height - 50,
                       onPageChanged: onSwipePage
                   ),
                   carouselController: _controller,

@@ -6,7 +6,7 @@ import 'package:newrock/models/root.model.dart';
 import 'package:newrock/components/parts/SearchInput.component.dart';
 
 
-class SearchArtistsScreen extends StatelessWidget {
+class SearchArtists extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
