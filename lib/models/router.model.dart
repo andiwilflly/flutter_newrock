@@ -5,9 +5,6 @@ import 'package:newrock/models/root.model.dart';
 // Utils
 import "package:newrock/utils/getPageScreen.util.dart";
 // Pages
-import 'package:newrock/components/pages/HomePage.component.dart';
-import 'package:newrock/components/pages/NotificationsPage.component.dart';
-import 'package:newrock/components/pages/ProfilePage.component.dart';
 import 'package:newrock/components/Artist.component.dart';
 import 'package:newrock/components/parts/SearchInput.component.dart';
 
