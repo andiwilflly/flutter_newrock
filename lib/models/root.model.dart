@@ -20,4 +20,3 @@ class RootModel {
 
 
 final store = RootModel();
-

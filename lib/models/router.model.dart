@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 // Models
 import 'package:newrock/models/root.model.dart';
+// Utils
+import "package:newrock/utils/getPageScreen.util.dart";
 // Pages
 import 'package:newrock/components/pages/HomePage.component.dart';
-import 'package:newrock/components/pages/TestPage.component.dart';
+import 'package:newrock/components/pages/NotificationsPage.component.dart';
 import 'package:newrock/components/pages/ProfilePage.component.dart';
 import 'package:newrock/components/Artist.component.dart';
 import 'package:newrock/components/parts/SearchInput.component.dart';
@@ -14,7 +16,7 @@ class RouterModel {
 
   var navigator = {
     "Home": {
-      "child": HomePage(),
+      "child": Container(child: Obx(() => getPageScreen('Home'))),
       "icon": Icons.home,
       "screens": {
         "/artists/search": {
@@ -31,12 +33,24 @@ class RouterModel {
       }
     },
     "Notifications": {
-      "child": TestPage(),
-      "icon": Icons.notifications
+      "child": Container(child: Obx(() => getPageScreen('Notifications'))),
+      "icon": Icons.notifications,
+      "screens": {
+        "/notifications": {
+          "child": Text('Notifications'),
+          "params": {}
+        },
+      }
     },
     "Profile": {
-      "child": ProfilePage(),
-      "icon": Icons.person
+      "child": Container(child: Obx(() => getPageScreen('Profile'))),
+      "icon": Icons.person,
+      "screens": {
+        "/profile": {
+          "child": Text('Profile'),
+          "params": {}
+        },
+      }
     }
   };
 
@@ -46,8 +60,8 @@ class RouterModel {
 
   RxMap currentPageScreen = {
     "Home": "/artists/search",
-    "Notifications": "",
-    "Profile": ""
+    "Notifications": "/notifications",
+    "Profile": "/profile"
   }.obs;
 
   void setCurrentPage(String page) {
@@ -59,8 +73,5 @@ class RouterModel {
     store.screens[screen]["params"] = params;
     currentPageScreen[currentPage.toString()] = screen;
   }
-
-  // Home page screens logic
-  RxString currentHomeScreen = "/artists/search".obs;
 }
 

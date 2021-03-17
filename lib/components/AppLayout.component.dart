@@ -52,6 +52,7 @@ class _AppLayoutState extends State<AppLayout> {
     var routes = <StatelessWidget>[];
     store.router.navigator.values.forEach((route)=> routes.add(route["child"]));
 
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
