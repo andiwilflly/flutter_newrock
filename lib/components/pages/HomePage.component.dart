@@ -10,11 +10,10 @@ import 'package:newrock/components/parts/SearchInput.component.dart';
 class HomePage extends StatelessWidget {
 
   renderScreens() {
-    var screens = Map<String, dynamic>.from(store.router.navigator["Home"]["screens"]);
     StatelessWidget CurrentScreen;
 
-    screens.keys.toList().forEach((screenName) {
-      if(screenName == store.router.currentPageScreen["Home"].toString()) CurrentScreen = screens[screenName]["child"];
+    store.screens.keys.toList().forEach((screenName) {
+      if(screenName == store.router.currentPageScreen["Home"].toString()) CurrentScreen = store.screens[screenName]["child"];
     });
 
     return CurrentScreen;

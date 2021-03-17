@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+// Models
+import 'package:newrock/models/root.model.dart';
 // Pages
 import 'package:newrock/components/pages/HomePage.component.dart';
 import 'package:newrock/components/pages/TestPage.component.dart';
@@ -39,7 +41,6 @@ class RouterModel {
   };
 
 
-
   RxString currentPage = "Home".obs;
 
 
@@ -55,9 +56,7 @@ class RouterModel {
 
 
   void setCurrentPageScreen(String screen, params) {
-    var screens = Map<String, dynamic>.from(navigator[currentPage.toString()]["screens"]);
-    print(screens[screen]);
-    screens[screen]["params"] = params;
+    store.screens[screen]["params"] = params;
     currentPageScreen[currentPage.toString()] = screen;
   }
 

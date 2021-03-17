@@ -49,25 +49,19 @@ class _AppLayoutState extends State<AppLayout> {
 
   @override
   Widget build(BuildContext context) {
-
-    final navigator = store.router.navigator;
-    final screens = Map<String, dynamic>.from(store.router.navigator[store.router.currentPage.toString()]["screens"]);
     var routes = <StatelessWidget>[];
-    navigator.values.forEach((route)=> routes.add(route["child"]));
+    store.router.navigator.values.forEach((route)=> routes.add(route["child"]));
 
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          leading: Obx(()=> screens[store.router.currentPageScreen[store.router.currentPage.toString()].toString()]["onBack"] == '' ?
+          leading: Obx(()=> store.currentScreen["onBack"] == '' ?
             Text('')
             :
             IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {
-                print('back');
-                var screens = Map<String, dynamic>.from(store.router.navigator[store.router.currentPage.toString()]["screens"]);
-                print(screens.keys.first);
-
+                store.router.setCurrentPageScreen(store.currentScreen["onBack"], {});
               },
             )
           ),
@@ -104,7 +98,7 @@ class _AppLayoutState extends State<AppLayout> {
           key: _bottomNavigationKey,
           index: _page,
           height: 50.0,
-          items: store.router.navigator.keys.map((pageName) => Icon(store.router.navigator[pageName]["icon"], size: 25, color: Colors.white)).toList(),
+          items: store.navBarItems,
           color: Theme.of(context).accentColor,
           buttonBackgroundColor: Theme.of(context).accentColor,
           backgroundColor: Theme.of(context).primaryColor,

@@ -11,10 +11,8 @@ class Artist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double imgSize = 250;
-    var screens = Map<String, dynamic>.from(store.router.navigator[store.router.currentPage.toString()]["screens"]);
-    var currentScreen = screens[store.router.currentPageScreen[store.router.currentPage.toString()]];
 
-    print(currentScreen['params']);
+    print(store.currentScreen['params']);
 
     return Container(
       child: Padding(
@@ -26,14 +24,14 @@ class Artist extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(imgSize),
                   child: Image.network(
-                    currentScreen['params']['img'],
+                    store.currentScreen['params']['img'],
                     height: imgSize,
                     width: imgSize,
                   ),
                 )),
             Padding(
               padding: EdgeInsets.only(top: 20),
-              child: Text(currentScreen['params']['name'], style: Theme.of(context).textTheme.bodyText1),
+              child: Text(store.currentScreen['params']['name'], style: Theme.of(context).textTheme.bodyText1),
             ),
           ],
         ),

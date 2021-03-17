@@ -53,7 +53,7 @@ class App extends StatelessWidget {
           return MaterialApp(
             title: 'NEWROCK',
             theme: themeStyles,
-            home: Obx(() => store.auth.isAuth == true ? AppLayout() : LoginPage()),
+            home: Obx(() => store.auth.isAuth == true ? AppLayout() : AppLayout()),
           );
         }
 
