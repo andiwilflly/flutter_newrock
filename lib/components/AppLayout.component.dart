@@ -80,19 +80,19 @@ class _AppLayoutState extends State<AppLayout> {
             return new Stack(
                 fit: StackFit.expand,
                 children: [
-                Positioned(
-                    height: 24.0,
-                    left: 0.0,
-                    right: 0.0,
-                    child: Container(
-                      color: connected ? Color(0xFF00EE44) : Color(0xFFEE4400),
-                      child: Center(
-                        child: Text("${connected ? 'ONLINE' : 'OFFLINE'}"),
-                      ),
-                    ),
-                ),
+                // Positioned(
+                //     height: 24.0,
+                //     left: 0.0,
+                //     right: 0.0,
+                //     child: Container(
+                //       color: connected ? Color(0xFF00EE44) : Color(0xFFEE4400),
+                //       child: Center(
+                //         child: Text("${connected ? 'ONLINE' : 'OFFLINE'}"),
+                //       ),
+                //     ),
+                // ),
                 Padding(
-                    padding: EdgeInsets.only(top: 24),
+                    padding: EdgeInsets.only(top: 0),
                     child: SingleChildScrollView(
                         child: Column(
                           children: <Widget>[

@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:newrock/models/root.model.dart';
 // Utils
 import "package:newrock/utils/getPageScreen.util.dart";
-// Pages
+// Components
 import 'package:newrock/components/Artist.component.dart';
 import 'package:newrock/components/parts/SearchInput.component.dart';
+import 'package:newrock/components/parts/notifications/NotificationsList.component.dart';
 
 
 class RouterModel {
@@ -34,7 +35,7 @@ class RouterModel {
       "icon": Icons.notifications,
       "screens": {
         "/notifications": {
-          "child": Text('Notifications'),
+          "child": NotificationsList(),
           "params": {}
         },
       }

@@ -18,6 +18,7 @@ Future<void> firebaseAuthStateChanges() {
       print('FIREBASE | User is signed in!');
       store.auth.logIn(user);
     }
+    store.setProjectReady();
   });
 }
 

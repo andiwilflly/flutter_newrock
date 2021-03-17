@@ -8,10 +8,7 @@ class AuthModel {
   RxBool isAuth = false.obs;
 
   void logIn(user) {
-    Future.delayed(loginTime).then((_) {
       isAuth.value = true;
-    });
-
   }
 
   void logOut() async {
