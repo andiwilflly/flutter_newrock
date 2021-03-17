@@ -52,19 +52,18 @@ class _AppLayoutState extends State<AppLayout> {
     var routes = <StatelessWidget>[];
     store.router.navigator.values.forEach((route)=> routes.add(route["child"]));
 
-
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          leading: Obx(()=> store.currentScreen["onBack"] == '' ?
-            Text('')
-            :
+          leading: Obx(()=> store.currentScreen["onBack"].runtimeType == String ?
             IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               onPressed: () {
                 store.router.setCurrentPageScreen(store.currentScreen["onBack"], {});
               },
             )
+            :
+            Text('')
           ),
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
