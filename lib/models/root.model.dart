@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:newrock/models/auth.model.dart';
 import 'package:newrock/models/router.model.dart';
 import 'package:newrock/models/searchArtists.model.dart';
+import 'package:newrock/models/notifications.model.dart';
 
 
 class RootModel {
@@ -13,6 +14,7 @@ class RootModel {
   final auth = AuthModel();
   final router = RouterModel();
   final searchArtists = SearchArtists();
+  final notifications = NotificationsModel();
 
 
   // Getters

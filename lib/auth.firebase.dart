@@ -9,7 +9,7 @@ FirebaseAuth auth = FirebaseAuth.instance;
 Future<void> firebaseAuthStateChanges() {
   FirebaseAuth.instance
       .authStateChanges()
-      .listen((User user) {
+      .listen((user) {
 
     if (user == null) {
       print('FIREBASE | User is currently signed out!');

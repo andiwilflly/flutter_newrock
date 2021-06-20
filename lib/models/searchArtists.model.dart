@@ -2,8 +2,7 @@ import 'package:get/get.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 // Models
-import 'package:newrock/models/auth.model.dart';
-import 'package:newrock/models/router.model.dart';
+import 'package:newrock/models/root.model.dart';
 
 
 class SearchArtists {
@@ -23,6 +22,8 @@ class SearchArtists {
   }
 
   void fetch(query) async {
+    store.notifications.fetchAll();
+
     artists.assignAll([]);
     if(query.length == 0) return;
 

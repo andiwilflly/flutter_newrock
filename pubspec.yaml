@@ -23,12 +23,13 @@ environment:
 dependencies:
   get: ^3.25.6
   flutter_login: ^1.0.14
-  firebase_auth: ^0.18.0
-  firebase_core: ^0.5.0
-  http: 0.12.2
+  firebase_auth: ^1.0.1
+  firebase_core: ^1.0.1
+  http: ^0.13.0
+  cloud_firestore: ^1.0.1
   curved_navigation_bar: ^0.3.7
   carousel_slider: ^3.0.0
-  flutter_offline: 1.0.0
+  flutter_offline: ^2.0.0
   material_floating_search_bar: ^0.2.6
   flutter:
     sdk: flutter
